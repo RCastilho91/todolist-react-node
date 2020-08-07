@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskCard from '../TaskCards/TaskCard';
 
 function PendingArea(props) {
     return(
@@ -8,7 +9,9 @@ function PendingArea(props) {
             </div>
 
             <div className="status-modifier">
-
+                { props.pendingTasks.map (task => {
+                    <TaskCard {... task} />
+                })}
             </div>
         </div>
     )
@@ -22,7 +25,9 @@ function CompletedArea(props) {
             </div>
 
             <div className="status-modifier">
-
+                {props.completeTasks.map (task => {
+                    <TaskCard {... task} />
+                })}
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserCard from '../UserCard';
+import UserCard from '../UserCard/UserCard';
 
 export default class AllUsers extends Component {
     constructor(props){
@@ -8,15 +8,15 @@ export default class AllUsers extends Component {
         this.state = {
             users: [
                 {   
-                    'user': 'Fulano',
+                    'person': 'Fulano',
                     'userName': 'Fulano123',
                 },
                 {
-                    'user': 'Beltrano',
+                    'person': 'Beltrano',
                     'userName': 'Beltrano123'
                 },
                 {
-                    'user': 'Cicrano',
+                    'person': 'Cicrano',
                     'userName': 'Cicrano123'
                 }
             ]
@@ -32,7 +32,7 @@ export default class AllUsers extends Component {
 
                 <div className="user-area">
                     { this.state.users.map( user =>
-                        <UserCard {... user } />
+                        <UserCard {... user} />
                     )}
                 </div>
             </div>

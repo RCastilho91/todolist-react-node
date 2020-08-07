@@ -7,7 +7,7 @@ export default class UserPage extends Component {
 
         this.state = {
             user: props.username,
-            userName: props.name,
+            userName: props.person,
             email: props.email,
             completeTasks: [],
             pendingTasks: []
