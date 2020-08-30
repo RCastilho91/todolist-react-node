@@ -82,25 +82,21 @@ export default class UserPage extends Component {
     }
 
     toggleNewTaskModal(){
-        alert("Toggle modal reached");
-
         this.setState({
             displayNewTaskModal: !this.state.displayNewTaskModal
         })
     }
 
     render(){
-
-        var testingOut = this.toggleNewTaskModal;
-
         return(
             <div className="user-area-container">
-                <NewTaskModal visibility={ this.state.displayNewTaskModal } toggleFunction={ this.toggleNewTaskModal } />
+                { this.state.displayNewTaskModal ? <NewTaskModal toggleFunction={ this.toggleNewTaskModal } /> : null }
+                
                 <div className="profile-header">
                     <h2>{ this.state.userName }</h2>
                         { this.state.email } <br/>
 
-                    <NewTaskButton toggleFunction={ testingOut } />
+                    <NewTaskButton toggleFunction={ this.toggleNewTaskModal } />
                 </div>
 
                 <PendingArea {...this.state} />
