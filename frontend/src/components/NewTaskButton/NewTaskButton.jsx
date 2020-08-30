@@ -4,7 +4,7 @@ export default function NewTaskButton( props ){
 
     return(
         <div>
-            <button onClick={ props.toggleNewTaskModal }>
+            <button onClick={ props.toggleFunction }>
                 Add new task
             </button>
         </div>

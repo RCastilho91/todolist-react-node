@@ -43,16 +43,20 @@ export default class UserPage extends Component {
 
     handleNewTask(taskTitle, taskDescription) {
         var newID = this.state.pendingList.length + this.state.completedList.length + 1;
+        console.log(taskTitle);
+        console.log(taskDescription);
 
         this.setState({
-            ...this.state,
-            pendingList: [...this.state.pendingList, {
+            pendingList: [
+                ...this.state.pendingList, {
                 taskID: { newID },
-                taskTitle: { taskTitle },
-                taskDescription: { taskDescription },
+                taskTitle: `${ taskTitle }`,
+                taskDescription: `${ taskDescription }`,
                 completed: false
             }]
-        })
+        });
+
+        this.toggleNewTaskModal();
     }
 
     handleTaskDrop(taskID, completion) {
@@ -90,7 +94,7 @@ export default class UserPage extends Component {
     render(){
         return(
             <div className="user-area-container">
-                { this.state.displayNewTaskModal ? <NewTaskModal toggleFunction={ this.toggleNewTaskModal } /> : null }
+                { this.state.displayNewTaskModal ? <NewTaskModal toggleFunction={ this.toggleNewTaskModal } addNew={ this.handleNewTask } />: null }
                 
                 <div className="profile-header">
                     <h2>{ this.state.userName }</h2>
