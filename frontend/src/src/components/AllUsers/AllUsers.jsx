@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserCard from '../UserCard/UserCard';
+import './styles.css';
 
 export default class AllUsers extends Component {
     constructor(props){
@@ -32,7 +33,7 @@ export default class AllUsers extends Component {
 
                 <div className="user-area">
                     { this.state.users.map( user =>
-                        <UserCard {... user} />
+                        <UserCard {...user} />
                     )}
                 </div>
             </div>

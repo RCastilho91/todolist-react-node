@@ -1,0 +1,10 @@
+.task-card {
+    height: 200px;
+    width: 220px;
+    border: 0.2px solid black;
+    display: inline-block;
+    margin: 20px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}

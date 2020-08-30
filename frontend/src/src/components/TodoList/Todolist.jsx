@@ -26,7 +26,6 @@ export default class Todolist extends Component {
         this.setState({
             taskItems: this.state.taskItems.map(task =>{
                 if (task.id === taskID) {
-                    console.log("changing this shizzle")
                     return { ...task, status: event.target.checked ? 'completed' : 'pending'}
                 }
 

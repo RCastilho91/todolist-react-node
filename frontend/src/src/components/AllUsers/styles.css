@@ -1,0 +1,17 @@
+.all-users-container {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+.all-users-header {
+    width: 100vw;
+    height: 10vh;
+    margin-bottom: 25px;
+}
+
+.user-area {
+    width: 100vw;
+    height: 90vh;
+}
+

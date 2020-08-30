@@ -1,0 +1,37 @@
+.modal-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.new-task-modal {
+    height: 350px;
+    width: 350px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    border: 0.5px solid black;
+    align-self: center;
+    text-align: center;
+}
+
+.modal-title {
+    display: block;
+    margin: 10px 0px;
+}
+
+.modal-controls {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+}
+
+.modal-submission, .modal-cancelation {
+    display: block;
+    margin-bottom: 8px;
+}

@@ -2,6 +2,11 @@ import React from 'react';
 import TaskCard from '../TaskCards/TaskCard';
 
 function PendingArea(props) {
+
+    var pendingTasks = props.pendingList.map(task => {
+        return <TaskCard {...task} />
+    });
+
     return(
         <div className="status-container">
             <div className="status-title">
@@ -9,15 +14,18 @@ function PendingArea(props) {
             </div>
 
             <div className="status-modifier">
-                { props.pendingTasks.map (task => {
-                    <TaskCard {... task} />
-                })}
+                { pendingTasks }
             </div>
         </div>
     )
 }
 
 function CompletedArea(props) {
+
+    var completedTasks = props.completedList.map(task => {
+        return <TaskCard {...task} />
+    })
+
     return(
         <div className="status-container">
             <div className="status-title">
@@ -25,13 +33,12 @@ function CompletedArea(props) {
             </div>
 
             <div className="status-modifier">
-                {props.completeTasks.map (task => {
-                    <TaskCard {... task} />
-                })}
+                { completedTasks }
             </div>
         </div>
     )
 }
+
 
 export {
     PendingArea,

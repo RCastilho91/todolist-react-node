@@ -1,0 +1,17 @@
+.user-area-container {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+.profile-header {
+    width: 100vw;
+    height: 15vh;
+}
+
+.status-container {
+    width: 45vw;
+    height: 85vh;
+    display: inline-block;
+    border: 0.1px solid black;
+}
