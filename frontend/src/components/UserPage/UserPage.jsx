@@ -17,20 +17,17 @@ export default class UserPage extends Component {
                 taskID: 1,
                 taskTitle: 'Task 1',
                 taskDescription: 'Description 1',
-                completed: true
             },
             {
                 taskID: 3,
                 taskTitle: 'Task 3',
                 taskDescription: 'Description 3',
-                completed: true
             }],
 
             pendingList: [{
                 taskID: 2,
                 taskTitle: 'Task 2',
                 taskDescription: 'Description 2',
-                completed: false
             }],
 
             displayNewTaskModal: false
@@ -59,8 +56,8 @@ export default class UserPage extends Component {
         this.toggleNewTaskModal();
     }
 
-    handleTaskDrop(taskID, completion) {
-        if(completion === true){
+    handleTaskDrop(taskID, boardName) {
+        if(boardName === "pending"){
             this.state.completedList.map( task => {
                 if(task.id === taskID){
                     this.setState({
@@ -103,7 +100,7 @@ export default class UserPage extends Component {
                     <NewTaskButton toggleFunction={ this.toggleNewTaskModal } />
                 </div>
 
-                <PendingArea {...this.state} />
+                <PendingArea {...this.state} taskDropper={ this.handleTaskDrop } />
                 <CompletedArea {...this.state} />
             </div>
         )

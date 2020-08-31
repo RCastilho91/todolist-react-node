@@ -9,9 +9,17 @@ function PendingArea(props) {
 
     const drop = e => {
         e.preventDefault();
-        const taskID = e.dataTransfer.getData('taskID');
-        const taskCard = document.getElementById(taskID);
-        taskCard.style.display = 'block';
+
+        const taskID = e.target.props.taskID;
+
+        console.log(`Moved task ID: ${ taskID }`);
+
+        // taskCard.style.display = 'block';
+        // props.taskDropper(taskID, 'pending')
+    }
+
+    const dragOver = e => {
+        e.preventDefault();
     }
 
     return(
@@ -20,7 +28,9 @@ function PendingArea(props) {
                 <h2>Tarefas pendentes</h2>
             </div>
 
-            <div className="status-modifier">
+            <div className="status-modifier" 
+            onDrop={ drop }
+            onDragOver={ dragOver }>
                 { pendingTasks }
             </div>
         </div>
@@ -30,7 +40,7 @@ function PendingArea(props) {
 function CompletedArea(props) {
 
     var completedTasks = props.completedList.map(task => {
-        return <TaskCard {...task} />
+        return <TaskCard key={ task.taskID } {...task} />
     })
 
     return(
