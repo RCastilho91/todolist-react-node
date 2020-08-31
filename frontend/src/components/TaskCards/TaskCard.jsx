@@ -7,8 +7,10 @@ export default function TaskCard(props) {
         console.log(`You're clicking ID ${ props.taskID }`)
     }
 
+    var taskIdentifier = props.taskID;
+
     return(
-        <div className="task-card" key={ props.taskID } onClick={ clickEvent } draggable>
+        <div className="task-card" id={ taskIdentifier } onClick={ clickEvent } draggable>
             <h3> { props.taskTitle } </h3>
             { props.taskDescription }
         </div>

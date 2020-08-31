@@ -10,12 +10,9 @@ function PendingArea(props) {
     const drop = e => {
         e.preventDefault();
 
-        const taskID = e.target.props.taskID;
-
-        console.log(`Moved task ID: ${ taskID }`);
-
-        // taskCard.style.display = 'block';
-        // props.taskDropper(taskID, 'pending')
+        var taskID = e.target.id;
+        console.log(taskID);
+        props.taskDropper(taskID, 'pending')
     }
 
     const dragOver = e => {

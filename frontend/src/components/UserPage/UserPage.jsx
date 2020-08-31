@@ -57,6 +57,9 @@ export default class UserPage extends Component {
     }
 
     handleTaskDrop(taskID, boardName) {
+
+        console.log(`Dropped task ${ taskID } on board ${ boardName }`)
+
         if(boardName === "pending"){
             this.state.completedList.map( task => {
                 if(task.id === taskID){
