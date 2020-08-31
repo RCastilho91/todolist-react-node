@@ -7,6 +7,13 @@ function PendingArea(props) {
         return <TaskCard {...task} />
     });
 
+    const drop = e => {
+        e.preventDefault();
+        const taskID = e.dataTransfer.getData('taskID');
+        const taskCard = document.getElementById(taskID);
+        taskCard.style.display = 'block';
+    }
+
     return(
         <div className="status-container">
             <div className="status-title">
