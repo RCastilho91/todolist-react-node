@@ -22,16 +22,16 @@ export default class NewTaskModal extends Component {
             <div className="modal-wrapper">    
                 <div className="new-task-modal">
                     <h2>Nova tarefa</h2>
-                    <span className="modal-title">Título da tarefa: </span>
+                    <span className="modal-title">Task title: </span>
                     <input className="modal-input" ref={ this.newTaskTitle } />
-                    <span className="modal-title">Descrição da tarefa:</span>
+                    <span className="modal-title">Task description:</span>
                     <textarea className="modal-input" ref={ this.newTaskDescription } />
     
                     <p/>
     
                     <div className="modal-controls">
-                        <button className="modal-submission" onClick={ this.newTaskHandler }>Criar tarefa</button>
-                        <button className="modal-cancelation" onClick={ this.props.toggleFunction }>Cancelar</button>
+                        <button className="modal-submission" onClick={ this.newTaskHandler }>Create task</button>
+                        <button className="modal-cancelation" onClick={ this.props.toggleFunction }>Cancel</button>
                     </div>
                 </div>
             </div>
