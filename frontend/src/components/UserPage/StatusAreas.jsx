@@ -1,11 +1,28 @@
 import React from 'react';
 import TaskCard from '../TaskCards/TaskCard';
 
-function PendingArea(props) {
+export default function DropArea(props) {
 
-    var pendingTasks = props.pendingList.map(task => {
-        return <TaskCard {...task} />
-    });
+    let tasksToRender;
+
+    if( props.sectionPurpose === "pending" ) {
+        var sectionTitle = 'Pending Tasks';
+
+        tasksToRender = props.taskList.filter((task) => {
+            return task.completed === false;
+        });
+    } else {
+
+        var sectionTitle = 'Completed Tasks';
+
+        tasksToRender = props.taskList.filter((task) => {
+            return task.completed === true;
+        });
+    }
+
+    var cardRenderer = ( tasksToRender ) => {
+        return <TaskCard { ...tasksToRender } />
+    }
 
     const drop = e => {
         e.preventDefault();
@@ -22,39 +39,14 @@ function PendingArea(props) {
     return(
         <div className="status-container">
             <div className="status-title">
-                <h2>Tarefas pendentes</h2>
+                <h2>{ sectionTitle }</h2>
             </div>
 
             <div className="status-modifier" 
             onDrop={ drop }
             onDragOver={ dragOver }>
-                { pendingTasks }
+                { cardRenderer( tasksToRender ) }
             </div>
         </div>
     )
-}
-
-function CompletedArea(props) {
-
-    var completedTasks = props.completedList.map(task => {
-        return <TaskCard key={ task.taskID } {...task} />
-    })
-
-    return(
-        <div className="status-container">
-            <div className="status-title">
-                <h2>Tarefas concluídas</h2>
-            </div>
-
-            <div className="status-modifier">
-                { completedTasks }
-            </div>
-        </div>
-    )
-}
-
-
-export {
-    PendingArea,
-    CompletedArea
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PendingArea, CompletedArea } from './StatusAreas';
+import DropArea from './StatusAreas';
 import NewTaskModal from '../NewTaskModal/NewTaskModal';
 import NewTaskButton from '../NewTaskButton/NewTaskButton';
 import './styles.css'
@@ -13,21 +13,23 @@ export default class UserPage extends Component {
             userName: 'Fulano123',
             email: 'fulano@teste.com',
 
-            completedList: [{
+            taskList: [{
                 taskID: 1,
                 taskTitle: 'Task 1',
                 taskDescription: 'Description 1',
+                completed: true
+            },
+            {
+                taskID: 2,  
+                taskTitle: 'Task 2',
+                taskDescription: 'Description 2',
+                completed: false
             },
             {
                 taskID: 3,
                 taskTitle: 'Task 3',
                 taskDescription: 'Description 3',
-            }],
-
-            pendingList: [{
-                taskID: 2,
-                taskTitle: 'Task 2',
-                taskDescription: 'Description 2',
+                completed: true
             }],
 
             displayNewTaskModal: false
@@ -40,8 +42,6 @@ export default class UserPage extends Component {
 
     handleNewTask(taskTitle, taskDescription) {
         var newID = this.state.pendingList.length + this.state.completedList.length + 1;
-        console.log(taskTitle);
-        console.log(taskDescription);
 
         this.setState({
             pendingList: [
@@ -103,8 +103,8 @@ export default class UserPage extends Component {
                     <NewTaskButton toggleFunction={ this.toggleNewTaskModal } />
                 </div>
 
-                <PendingArea {...this.state} taskDropper={ this.handleTaskDrop } />
-                <CompletedArea {...this.state} />
+                <DropArea { ...this.state } sectionPurpose="pending" />
+                <DropArea { ...this.state } sectionPurpose="completed" />
             </div>
         )
     }
