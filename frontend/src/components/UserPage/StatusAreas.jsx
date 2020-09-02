@@ -4,25 +4,24 @@ import TaskCard from '../TaskCards/TaskCard';
 export default function DropArea(props) {
 
     let tasksToRender;
-
+    var sectionTitle = '';
+    
     if( props.sectionPurpose === "pending" ) {
-        var sectionTitle = 'Pending Tasks';
+        sectionTitle = 'Pending Tasks';
 
-        tasksToRender = props.taskList.filter((task) => {
+        tasksToRender = props.taskList.filter( task => {
             return task.completed === false;
         });
     } else {
 
-        var sectionTitle = 'Completed Tasks';
+        sectionTitle = 'Completed Tasks';
 
-        tasksToRender = props.taskList.filter((task) => {
+        tasksToRender = props.taskList.filter( task => {
             return task.completed === true;
         });
     }
 
-    var cardRenderer = ( tasksToRender ) => {
-        return <TaskCard { ...tasksToRender } />
-    }
+    var cardRenderer = <TaskCard tasks={ tasksToRender } />
 
     const drop = e => {
         e.preventDefault();
@@ -45,7 +44,7 @@ export default function DropArea(props) {
             <div className="status-modifier" 
             onDrop={ drop }
             onDragOver={ dragOver }>
-                { cardRenderer( tasksToRender ) }
+                { cardRenderer }
             </div>
         </div>
     )
