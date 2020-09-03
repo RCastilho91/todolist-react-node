@@ -41,17 +41,19 @@ export default class UserPage extends Component {
     }
 
     handleNewTask(taskTitle, taskDescription) {
-        var newID = this.state.pendingList.length + this.state.completedList.length + 1;
+        var newID = this.state.taskList.length + 1;
 
         this.setState({
-            pendingList: [
-                ...this.state.pendingList, {
+            taskList: [
+                ...this.state.taskList, {
                 taskID: { newID },
                 taskTitle: `${ taskTitle }`,
                 taskDescription: `${ taskDescription }`,
                 completed: false
             }]
         });
+
+        console.log(this.state.taskList);
 
         this.toggleNewTaskModal();
     }
